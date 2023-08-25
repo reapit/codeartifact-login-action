@@ -69,6 +69,6 @@ runs:
           pip config set site.index-url "https://aws:${{ steps.codeartifact-metadata.outputs.codeartifact-token }}@${{ steps.codeartifact-metadata.outputs.codeartifact-repo-url }}simple/"
         fi
         if [ "${{ inputs.configure-poetry }}" == "true" ]; then
-          poetry config repositories.${{ inputs.codeartifact-repository }} ${{ steps.codeartifact-metadata.outputs.codeartifact-repo-url }}
+          poetry config repositories.${{ inputs.codeartifact-repository }} ${{ steps.codeartifact-metadata.outputs.codeartifact-repo-url }}simple/
           poetry config http-basic.${{ inputs.codeartifact-repository }} aws ${{ steps.codeartifact-metadata.outputs.codeartifact-token }}
         fi
